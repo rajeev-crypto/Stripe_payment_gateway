@@ -1,0 +1,28 @@
+<!-- <nav class="navbar navbar-dark bg-dark"> -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">subscription</a>
+   
+    <div class="collapse navbar-collapse" id="navbarNav">
+      
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <a href="#"> Sign in as <%= current_user.email %> </a>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign out", destroy_user_session_path,method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign in",new_user_session_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up",new_user_registration_path %>
+          </li>
+        <% end %>
+      
+      </ul>
+    </div>
+  </div>
+</nav>
